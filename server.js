@@ -35,7 +35,7 @@ app.post('/send-email', (req, res) => {
   const { name, email, mobile, message } = req.body; // Destructure values from the request body
 
   // Make sure all fields are available
-  if (!name || !email || !mobile || !message) {
+  if (!name || !mobile || !message) {
       return res.status(400).send({ success: false, message: 'Missing fields' });
   }
 
