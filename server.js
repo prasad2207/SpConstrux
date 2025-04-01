@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const transporter = nodemailer.createTransport({
     service: 'gmail', // Using Gmail service
     auth: {
-      user: 'your-email@gmail.com', // Replace with your Gmail address
-      pass: 'your-email-password'   // Replace with your Gmail app password or regular password
+      user: 'ulip.sipl@gmail.com', // Replace with your Gmail address
+      pass: 'swgo uptx cenv anni'   // Replace with your Gmail app password or regular password
     },
     tls: {
       rejectUnauthorized: false
