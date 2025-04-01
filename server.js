@@ -36,70 +36,11 @@ app.post('/send-email', (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: email,
-      to: 'prasadpshinde2000@gmail.com',  // Replace with the recipient's email
-      subject: `New message from ${name}`,
-      html: `
-          <html>
-              <head>
-                  <style>
-                      body {
-                          font-family: Arial, sans-serif;
-                          background-color: #f4f4f4;
-                          color: #333;
-                          margin: 0;
-                          padding: 0;
-                      }
-                      .container {
-                          width: 80%;
-                          margin: 0 auto;
-                          padding: 20px;
-                          background-color: #ffffff;
-                          border-radius: 8px;
-                          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                      }
-                      h2 {
-                          color: #2c3e50;
-                      }
-                      p {
-                          font-size: 16px;
-                          line-height: 1.5;
-                          color: #555;
-                      }
-                      .info {
-                          padding: 10px;
-                          background-color: #f2f2f2;
-                          border-left: 5px solid #3498db;
-                      }
-                      .footer {
-                          margin-top: 20px;
-                             padding: 10px;
-                          background-color: #2c3e50;
-                          color: #fff;
-                          text-align: center;
-                          font-size: 14px;
-                      }
-                  </style>
-              </head>
-              <body>
-                  <div class="container">
-                      <h2>You have received a new message from ${name}</h2>
-                      <div class="info">
-                          <p><strong>Name:</strong> ${name}</p>
-                          <p><strong>Email:</strong> ${email}</p>
-                          <p><strong>Mobile Number:</strong> ${mobile}</p>
-                      </div>
-                      <h3>Message Details:</h3>
-                      <p>${message}</p>
-                  </div>
-                  <div class="footer">
-                      <p>This email was sent from your website contact form. Please respond accordingly.</p>
-                  </div>
-              </body>
-          </html>
-      `
-  };
-  
+        from: email,
+        to: 'prasadpshinde2000@gmail.com',  // Replace with the recipient's email
+        subject: `New message from ${name}`,
+        text: `You have received a new message from ${name} (${mobile}):\n\n${message}`
+    };
 
     // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
