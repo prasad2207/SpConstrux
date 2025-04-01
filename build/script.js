@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // Send the data to the backend to send the email
-        fetch('http://localhost:3000/send-email', {
+        fetch('https://spconstrux-node.onrender.com/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
