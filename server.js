@@ -32,26 +32,38 @@ const transporter = nodemailer.createTransport({
 
 // Route to handle the POST request for sending an email
 app.post('/send-email', (req, res) => {
-    const { name, mobile, message } = req.body;
+  const { name, email, mobile, message } = req.body; // Destructure values from the request body
 
-    // Email options
-    const mailOptions = {
-        from: user,
-        to: 'prasadpshinde2000@gmail.com',  // Replace with the recipient's email
-        subject: `New message from ${name}`,
-        text: `You have received a new message from ${name} (${mobile}):\n\n${message}`
-    };
+  // Make sure all fields are available
+  if (!name || !email || !mobile || !message) {
+      return res.status(400).send({ success: false, message: 'Missing fields' });
+  }
 
-    // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log('Error sending email:', error);
-            return res.status(500).send('Error sending email.');
-        }
-        console.log('Email sent:', info.response);
-        res.status(200).send('Email sent successfully!');
-    });
+  const mailOptions = {
+      from: email,  // From the email provided in the form
+      to: 'recipient-email@example.com',  // Replace with the recipient's email
+      subject: `New message from ${name}`,
+      text: `You have received a new message from ${name} (${mobile}):\n\n${message}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          console.error('Error:', error);  // Log the error for debugging
+          return res.status(500).send({
+              success: false,
+              message: 'Error sending email',
+              error: error.message,
+          });
+      }
+
+      console.log('Email sent:', info.response);
+      return res.status(200).send({
+          success: true,
+          message: 'Email sent successfully',
+      });
+  });
 });
+
 
 // Serve static files (e.g., index.html, script.js) from the 'public' folder
 app.use(express.static('public'));
