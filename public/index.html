@@ -4,297 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>S.P Construction</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- In the <head> tag for CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-    <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
-
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="#">
                     <img src="images/sp_logo.png" alt="Logo" class="logo"> 
-                    
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon">=</span>
                 </button>
                 <div class="nav-overlay"></div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Services
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Service 1</a></li>
                                 <li><a class="dropdown-item" href="#">Service 2</a></li>
                                 <li><a class="dropdown-item" href="#">Service 3</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- 5 Horizontal Sections -->
+    <!-- Main Sections -->
     <div class="container">
         <div class="row">
-            <section id="section-one" class="section">
-                <div>
-                    <!-- Logo Centered -->
-                    <div class="text-center" style="margin: 0%;">
-                        <img src="images/sp_logo.png" alt="S.P Construction Logo" class="logo-center">
-                    </div>
             
-                    <!-- Main Heading -->
-                    <h1 class="display-4 text-center font-weight-bold">S.P Construction</h1>
-                    
-                    <!-- Description -->
-                    <p class="lead mt-2" style="padding-bottom: 200px; margin-bottom: 220px;">
-                        Welcome to S.P Construction! With over two decades of expertise in the Painting & Civil services industry, we offer unparalleled quality services designed to elevate your space. Whether it’s your home, office, or any other property, we transform environments with precision, passion, and professionalism.
-                    </p>
- 
-                   
-                </div>
+            <!-- Section One -->
+            <section id="section-one" class="section text-center">
+                <img src="images/sp_logo.png" alt="S.P Construction Logo" class="logo-center">
+                <h1 class="display-4 font-weight-bold">S.P Construction</h1>
+                <p class="lead mt-2" style="padding-bottom: 200px; margin-bottom: 220px;">
+                    Welcome to S.P Construction! With over two decades of expertise in the Painting & Civil services industry, we offer unparalleled quality services designed to elevate your space. Whether it’s your home, office, or any other property, we transform environments with precision, passion, and professionalism.
+                </p>
             </section>
-            
-            
-            
+
+            <!-- Section Two - Services -->
             <div class="col-12 section" id="section-two">
                 <main class="site-main">
-                  <section class="block block-carousel">
-                    <div class="container">
-                      <header>
-                        <h2>
-                          Our Services
-                        </h2>
-              
-                        <p>
-                            Let us help you design, renovate, and breathe new life into your space. Contact us today to start transforming your world!
-                        </p>
-                      </header>
-                    </div>
-              
-                    <ul class="carousel-items">
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Residential.jpeg" alt="">
+                    <section class="block block-carousel">
+                        <div class="container">
+                            <header>
+                                <h2>Our Services</h2>
+                                <p>Let us help you design, renovate, and breathe new life into your space. Contact us today to start transforming your world!</p>
+                            </header>
                         </div>
-                        <h3>Residential</h3>
-                        <p>Interior and exterior painting for homes and apartments, giving your space a fresh look.</p>
-                      </li>
-              
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Commercial.jpeg" alt="">
-                        </div>
-                        <h3>Commercial</h3>
-                        <p>Painting and civil work for offices and retail spaces to enhance your business environment.</p>
-                      </li>
-              
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Renovation.jpeg" alt="">
-                        </div>
-                        <h3>Renovation</h3>
-                        <p>Full renovation services, from repairs to complete transformations of your space.</p>
-                      </li>
-              
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Flooring.jpg" alt="">
-                        </div>
-                        <h3>Flooring</h3>
-                        <p>Quality flooring installations, including tiles, marble, and wooden finishes.</p>
-                      </li>
-              
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Facade.jpg" alt="">
-                        </div>
-                        <h3> Facade</h3>
-                        <p>Exterior painting and repairs to give your building a striking appearance</p>
-                      </li>
 
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Ceilings.jpg" alt="">
-                        </div>
-                        <h3>Ceilings & Walls</h3>
-                        <p>Ceiling and wall painting, plastering, and repairs for a flawless finish.</p>
-                      </li>
-
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Consultations.jpeg" alt="">
-                        </div>
-                        <h3>Design Consultations</h3>
-                        <p>Professional advice on colors, materials, and designs to suit your space.</p>
-                      </li>
-
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Repairs.jpg" alt="">
-                        </div>
-                        <h3>Structural Repairs</h3>
-                        <p>Repairs to foundations, walls, and supports to ensure building stability.</p>
-                      </li>
-              
-                      <li class="card">
-                        <div class="image-content">
-                          <img src="images/services/Commercial_fit.jpg" alt="">
-                        </div>
-                        <h3>Commercial Fit-Out</h3>
-                        <p>Complete office fit-outs, from design to finishing, creating functional workspaces.</p>
-                      </li>
-                    </ul>
-                  </section>
+                        <ul class="carousel-items">
+                            <li class="card">
+                                <div class="image-content">
+                                    <img src="images/services/Residential.jpeg" alt="">
+                                </div>
+                                <h3>Residential</h3>
+                                <p>Interior and exterior painting for homes and apartments, giving your space a fresh look.</p>
+                            </li>
+                            <li class="card">
+                                <div class="image-content">
+                                    <img src="images/services/Commercial.jpeg" alt="">
+                                </div>
+                                <h3>Commercial</h3>
+                                <p>Painting and civil work for offices and retail spaces to enhance your business environment.</p>
+                            </li>
+                            <li class="card">
+                                <div class="image-content">
+                                    <img src="images/services/Renovation.jpeg" alt="">
+                                </div>
+                                <h3>Renovation</h3>
+                                <p>Full renovation services, from repairs to complete transformations of your space.</p>
+                            </li>
+                            <li class="card">
+                                <div class="image-content">
+                                    <img src="images/services/Flooring.jpg" alt="">
+                                </div>
+                                <h3>Flooring</h3>
+                                <p>Quality flooring installations, including tiles, marble, and wooden finishes.</p>
+                            </li>
+                        </ul>
+                    </section>
                 </main>
-              </div>
-              
-            <div class="col-12 section" id="section-three">
-                Section Three
             </div>
-            <div class="col-12 section" id="section-four">
-                Section Four
-            </div>
+
+            <!-- Placeholder Sections -->
+            <div class="col-12 section" id="section-three">Section Three</div>
+            <div class="col-12 section" id="section-four">Section Four</div>
+
+            <!-- Contact Us Section -->
             <div class="col-12 section" id="section-five">
-                <!-- Contact Us Section -->
-                <div class="g-pos-rel">
-                    <!-- Content -->
-                    <div class="g-bg-size-cover g-bg-img-hero g-bg-cover g-bg-black-opacity-0_7--after g-pt-120 g-pb-70" style="background-image: url(../../../assets/img-temp/1920x1080/img51.jpg);">
-                        <div class="container u-bg-overlay__inner">
-                            <div class="row align-items-center">
-                                <div class="col-md-4 g-mb-50">
-                                    <h3 class="h4 g-color-white mb-4">Contact Info</h3>
-                    
-                                    <!-- Icon Block: Address -->
-                                    <div class="media align-items-center mb-4">
-                                        <div class="d-flex">
-                                            <span class="u-icon-v1 u-icon-size--sm g-color-white mr-2">
-                                                <i class="fas fa-map-marker-alt"></i> <!-- Updated icon -->
-                                            </span>
-                                        </div>
-                                        <div class="media-body">
-                                            <p class="g-color-white-opacity-0_6 mb-0">5B Streat, City 50987 New Town US</p>
-                                        </div>
-                                    </div>
-                                    <!-- End Icon Block -->
-                    
-                                    <!-- Icon Block: Phone -->
-                                    <div class="media align-items-center mb-4">
-                                        <div class="d-flex">
-                                            <span class="u-icon-v1 u-icon-size--sm g-color-white mr-2">
-                                                <i class="fas fa-phone-alt"></i> <!-- Updated icon -->
-                                            </span>
-                                        </div>
-                                        <div class="media-body">
-                                            <p class="g-color-white-opacity-0_6 mb-0">+32 (0) 333 444 555</p>
-                                        </div>
-                                    </div>
-                                    <!-- End Icon Block -->
-                    
-                                    <!-- Icon Block: Email -->
-                                    <div class="media align-items-center g-mb-60">
-                                        <div class="d-flex">
-                                            <span class="u-icon-v1 u-icon-size--sm g-color-white mr-2">
-                                                <i class="fas fa-envelope"></i> <!-- Updated icon -->
-                                            </span>
-                                        </div>
-                                        <div class="media-body">
-                                            <p class="g-color-white-opacity-0_6 mb-0">htmlstream@support.com</p>
-                                        </div>
-                                    </div>
-                                    <!-- End Icon Block -->
-                                </div>
+                <div class="container u-bg-overlay__inner">
+                    <div class="row align-items-center">
+                        
+                        <!-- Contact Info -->
+                        <div class="col-md-4">
+                            <h3 class="h4 g-color-white mb-4">Contact Info</h3>
+                            <div class="media align-items-center mb-4">
+                                <span class="u-icon-v1 u-icon-size--sm g-color-white mr-2"><i class="fas fa-map-marker-alt"></i></span>
+                                <div class="media-body"><p class="g-color-white-opacity-0_6 mb-0">5B Streat, City 50987 New Town US</p></div>
+                            </div>
+                            <div class="media align-items-center mb-4">
+                                <span class="u-icon-v1 u-icon-size--sm g-color-white mr-2"><i class="fas fa-phone-alt"></i></span>
+                                <div class="media-body"><p class="g-color-white-opacity-0_6 mb-0">+32 (0) 333 444 555</p></div>
+                            </div>
+                            <div class="media align-items-center">
+                                <span class="u-icon-v1 u-icon-size--sm g-color-white mr-2"><i class="fas fa-envelope"></i></span>
+                                <div class="media-body"><p class="g-color-white-opacity-0_6 mb-0">htmlstream@support.com</p></div>
                             </div>
                         </div>
-                    </div>
-                    
-                                    <!-- End Icon Block -->
-            
-                                    
-                                </div>
-                                <div class="col-md-7 g-mb-50"> <!-- Reduced width -->
-                                    <div class="g-brd-around g-brd-white-opacity-0_6 g-px-30 g-py-50 custom-form-box"> <!-- Adjust padding -->
-                                        <div class="row" style="width: 500px;">
-                                            <div class="col-md-3 g-mb-30">
-                                                <h2 class="h1 g-color-white">Contact Us</h2>
-                                            </div>
-                                
-                                            <div class="col-md-12 g-mb-30"> <!-- Full width for form -->
-                                                <!-- Contact Form -->
-                                                <form id="contact-form">
-                                                    <div class="mb-3">
-                                                        <input class="form-control" type="text" id="name" placeholder="Name" required>
-                                                    </div>
-                                                
-                                                    <div class="mb-3">
-                                                        <input class="form-control" type="tel" id="mobile" placeholder="Your Mobile Number" pattern="\d{10}" title="Please enter a valid 10-digit mobile number" required>
-                                                    </div>
-                                                
-                                                    <div class="mb-4">
-                                                        <textarea class="form-control" id="message" rows="5" placeholder="Message" required></textarea>
-                                                    </div>
-                                                
-                                                    <button class="btn u-btn-primary" type="submit">Send Message</button>
-                                                </form>
-                                                
-                                                <div id="status"></div> <!-- To show success or error messages -->
-                                                <!-- End Contact Form -->
-                                            </div>
-                                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="col-md-7">
+                            <div class="g-brd-around g-brd-white-opacity-0_6 g-px-30 g-py-50">
+                                <h2 class="h1 g-color-white">Contact Us</h2>
+                                <form id="contact-form">
+                                    <div class="mb-3">
+                                        <input class="form-control" type="text" id="name" placeholder="Name" required>
                                     </div>
-                                </div>
-                                
-                                            </div>
-                                        </div>
+                                    <div class="mb-3">
+                                        <input class="form-control" type="tel" id="mobile" placeholder="Your Mobile Number" pattern="\d{10}" required>
                                     </div>
-                                </div>
+                                    <div class="mb-4">
+                                        <textarea class="form-control" id="message" rows="5" placeholder="Message" required></textarea>
+                                    </div>
+                                    <button class="btn u-btn-primary" type="submit">Send Message</button>
+                                </form>
+                                <div id="status"></div>
                             </div>
                         </div>
+
                     </div>
-                    <!-- End Content -->
-            
-                    
-                    
-                    
                 </div>
             </div>
-            
+
         </div>
     </div>
 
-   
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <p>
+            <a href="https://wa.me/919987356494" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="whatsapp-icon"></a>
+            Developed with ❤️ by <strong>Prasad Shinde</strong> | All rights reserved &copy; 2025
+        </p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    
-
-   
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

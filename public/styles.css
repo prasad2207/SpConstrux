@@ -285,6 +285,8 @@ html, body {
     display: block;
     margin: 0 auto 0px; /* Center the logo with spacing */
     max-width: 100%; /* Ensures responsiveness */
+    box-shadow: inset;
+    box-shadow: 4px 4px 4px rgba(149, 149, 149, 0.8);
 }
 
 /* Container for your logo */
@@ -420,7 +422,7 @@ html, body {
   /* Section Five */
 #section-five {
     position: relative;
-    background-color: #111;
+    background-color: #484242;
     padding-top: 50px;
     padding-bottom: 0px;
     background-size: cover;
@@ -431,7 +433,7 @@ html, body {
     background-size: cover;
     background-blend-mode: soft-light; /* Lighten the background image */
     border-radius: 8px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 15px rgba(149, 149, 149, 0.2);
 
     color: #fff;
   }
@@ -625,4 +627,91 @@ html, body {
     margin-right: auto; /* Prevent it from centering */
     padding: 20px; /* Adjust padding for spacing */
 }
-  
+.wave-container {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300%;
+    animation: moveWaves 6s linear infinite;
+}
+
+@keyframes moveWaves {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
+}
+
+.footer {
+    background-color: #000; /* Black background */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+}
+
+.whatsapp-icon {
+    width: 18px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.whatsapp-link {
+    text-decoration: none;
+}
+
+/* Container for waves */
+.wave-container {
+  position: relative;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  background: linear-gradient(to bottom, #000 50%, transparent 50%);
+  overflow: hidden;
+}
+
+/* Wave Animation */
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: url('https://i.imgur.com/33qHOt8.png'); /* Wave pattern */
+  background-size: 50% 100%;
+  animation: waveMove 6s linear infinite;
+  opacity: 0.6;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+}
+
+/* WhatsApp Icon */
+.whatsapp-icon {
+  width: 18px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* WhatsApp Link */
+.whatsapp-link {
+  text-decoration: none;
+}
+
+/* Keyframes for the wave movement */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
