@@ -445,18 +445,22 @@ html, body {
   #section-five h3 {
     color: #fff;
     font-weight: 1000px;
+    width: 400px;
     font-family: inherit;
     padding-right: 25px;
+    padding-left: 25px;
+    text-align: left;
     
   }
   #section-five h2{
     color: #fff;
     font-weight: 1200px;
     font-family: inherit;
-    width: 100px;
+    width: 500px;
     font-size: 30px;
     padding-right: 40px;
     margin-left: 0px;
+    text-align: left !important;
   }
   
   #section-five .media {
@@ -525,11 +529,20 @@ html, body {
   #section-five .g-brd-around {
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 60px;
+    /* width: 500px; */
+    padding-left: 200px;
+   
   }
   
   #section-five .g-px-45 {
     padding-left: 45px;
     padding-right: 45px;
+  }
+
+  #section-five .g-pos-rel{
+    padding-right: 100px;
+    margin-left: 0;
+
   }
   
   #section-five .g-py-60 {
@@ -539,7 +552,9 @@ html, body {
   
   #section-five .g-mb-50 {
     margin-bottom: 50px;
-    padding-right: 50px;
+    padding-right: 100px;
+    margin-left: 90px;
+    
     
   }
   
@@ -604,4 +619,10 @@ html, body {
     margin-top: 30px;
   }
   
+  custom-form-box {
+    max-width: 400px; /* Reduce width */
+    margin-left: 100px; /* Align to the left */
+    margin-right: auto; /* Prevent it from centering */
+    padding: 20px; /* Adjust padding for spacing */
+}
   
