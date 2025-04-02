@@ -63,8 +63,8 @@ html, body {
 /* Specific section colors */
 
 #section-two { background-color: #f1f8e9; }
-#section-three { background-color: #fff3e0; }
-#section-four { background-color: #e8f5e9; }
+#section-three { background-color: #fff3e0 !important; }
+#section-four { background-color: #e8f5e9 !important; }
 #section-five { background-color: #f3e5f5; }
 
 /* Media query to make sections stack properly on small screens */
@@ -422,7 +422,7 @@ html, body {
   /* Section Five */
 #section-five {
     position: relative;
-    background-color: #484242;
+    background-color: #333333;
     padding-top: 50px;
     padding-bottom: 0px;
     background-size: cover;
@@ -723,9 +723,19 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: #f8f9fa;
   padding: 20px;
   overflow: hidden; /* No scrolling */
+}
+
+/* Heading Styling */
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 /* Container for the gallery */
@@ -736,7 +746,7 @@ html, body {
 
 /* Masonry-Style Grid */
 #section-three .card-columns {
-  column-count: 5; /* 3 columns */
+  column-count: 5; /* 5 columns */
   column-gap: 10px;
 }
 
