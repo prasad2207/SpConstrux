@@ -8,7 +8,7 @@ html, body {
     width: 100%;
     height: 100%;
     overflow-x: hidden; /* Prevent horizontal scroll */
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Asterone', sans-serif ; 
 }
 
 .navbar-brand {
@@ -71,6 +71,8 @@ html, body {
 @media (max-width: 991px) {
     .section {
         font-size: 18px; /* Adjust font size */
+        width: 100%;
+        overflow: hidden;
     }
 }
 
@@ -419,6 +421,28 @@ html, body {
     }
   }
 
+
+@media (max-width: 576px){
+   #section-two {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+} 
+html, body {
+  overflow-x: hidden;
+}
+#section-two .container P{
+  font-size: 1rem; /* Adjust text size */
+  line-height: 1.5; /* Ensure proper spacing */
+  padding: 0 15px; /* Add space from the sides */
+  word-wrap: break-word !important; /* Break words if too long */
+  text-align: center; /* Center align text */
+  max-width: 100%; /* Prevent overflow */
+  overflow-wrap: break-word !important; /* Ensure text doesn't go outside */
+  white-space: normal; /* Allow text to wrap properly */
+  visibility: hidden;
+}
+}
   /* Section Five */
 #section-five {
     position: relative;
@@ -627,6 +651,42 @@ html, body {
     margin-right: auto; /* Prevent it from centering */
     padding: 20px; /* Adjust padding for spacing */
 }
+@media (max-width: 576px) {
+  #section-five .g-brd-around {
+      padding: 30px !important; /* Reduce padding for better fit */
+      text-align: center; /* Center align text */
+  }
+
+  #section-five h2.h1,
+  #section-five h3 {
+      text-align: center !important; /* Center align both headings */
+      width: 100%; /* Ensure full width for proper alignment */
+  }
+
+  #section-five .form-control {
+      width: 100%; /* Make input fields full width */
+      text-align: center; /* Center align text inside inputs */
+      padding-left: 1px;
+  }
+
+  #section-five .btn {
+      width: 100%; /* Make button full width for better UI */
+  }
+  #section-five {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+#section-five .container {
+    max-width: 100% !important; /* Ensures container fits screen */
+    padding: 0 15px; /* Adjusts padding for better fit */
+}
+}
+
+
+
+
 .wave-container {
     position: relative;
     width: 100%;
@@ -768,19 +828,27 @@ html, body {
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   #section-three .card-columns {
-      column-count: 2;
+      column-count: 3;
   }
 }
 
 @media (max-width: 768px) {
   #section-three .card-columns {
-      column-count: 1;
+      column-count: 2;
   }
 }
 
 
 
 /* Section 4 Styling */
+#section-four {
+  background: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 #section-four {
   background: white;
   padding: 20px;
@@ -830,4 +898,16 @@ html, body {
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+@media (max-width: 576px) {
+  #section-four .section-header h1 {
+      padding-top: 25px;
+  }
+  #section-four .review-card {
+      padding: 10px;
+      max-width: 90%;
+      margin: 0 auto;
+      border-radius: 40PX;
+  }
 }
