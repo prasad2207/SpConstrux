@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript Loaded!");
+
+    // Navbar Toggle for Mobile
     const button = document.querySelector(".navbar-toggler");
     const navOverlay = document.querySelector(".nav-overlay");
     const navbarCollapse = document.querySelector(".navbar-collapse");
@@ -13,27 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
             navbarCollapse.classList.remove("show");
         }
     });
-});
 
-function solveSimpleChallenge() {
-    console.log("Function is working!");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript Loaded!");
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Contact Form Submission
     document.getElementById("contact-form").addEventListener("submit", function (event) {
-        event.preventDefault();  // Prevent form from submitting the default way
+        event.preventDefault();  // Prevent default form submission
 
         const formData = {
             name: document.getElementById("name").value,
-            mobile: document.getElementById("mobile").value,  // Capturing mobile number
+            mobile: document.getElementById("mobile").value,
             message: document.getElementById("message").value
         };
 
-        // Send the data to the backend to send the email
         fetch('https://spconstrux-node.onrender.com/send-email', {
             method: 'POST',
             headers: {
@@ -50,5 +43,66 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Error sending message');
         });
     });
-});
 
+    // **Section 3: Work Hours Chart**
+    const workHoursCanvas = document.getElementById('workHoursChart');
+    if (workHoursCanvas) {
+        workHoursCanvas.style.width = "100%";
+        workHoursCanvas.style.height = "250px";  // Ensure it fits inside card
+
+        const workHoursCtx = workHoursCanvas.getContext('2d');
+        new Chart(workHoursCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Today', 'This Month', 'This Year'],
+                datasets: [{
+                    label: 'Work Hours',
+                    data: [8, 160, 1920],  // Updated dataset
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Different colors
+                    borderColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 2000  // Adjust the max value based on yearly hours
+                    }
+                }
+            }
+        });
+    } else {
+        console.error("Canvas element #workHoursChart not found!");
+    }
+
+    // **Section 4: Ongoing Projects Chart**
+    let ctx = document.getElementById("ongoingProjectsChart");
+    if (ctx) {
+        ctx = ctx.getContext("2d");
+
+        new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: ["In Progress", "Completed", "Pending"],
+                datasets: [{
+                    label: "Ongoing Projects",
+                    data: [5, 8, 3],
+                    backgroundColor: ["#007bff", "#28a745", "#ffc107"],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    } else {
+        console.error("Canvas element #ongoingProjectsChart not found!");
+    }
+
+    // Update Static Values
+    document.getElementById('total-projects').innerText = 120;
+    document.getElementById('happy-customers').innerText = 98;
+});

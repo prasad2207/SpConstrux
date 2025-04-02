@@ -715,3 +715,109 @@ html, body {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Section Three Styling */
+/* Section 3 Full-Screen Setup */
+#section-three {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  overflow: hidden; /* No scrolling */
+}
+
+/* Container for the gallery */
+#section-three .container {
+  width: 90%;
+  height: 90%;
+}
+
+/* Masonry-Style Grid */
+#section-three .card-columns {
+  column-count: 5; /* 3 columns */
+  column-gap: 10px;
+}
+
+/* Cards */
+#section-three .card {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 100%;
+  border: none;
+}
+
+/* Image Styling */
+#section-three .card-img-top {
+  border-radius: 5px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  #section-three .card-columns {
+      column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  #section-three .card-columns {
+      column-count: 1;
+  }
+}
+
+
+
+/* Section 4 Styling */
+#section-four {
+  background: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#section-four .section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#section-four h1 {
+  color: #333;
+}
+
+/* Customer Reviews */
+#section-four .reviews-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#section-four .review-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+#section-four .review-card p {
+  margin: 5px 0;
+}
+
+#section-four .review-card h4 {
+  margin-top: 10px;
+  color: #007bff;
+}
+
+/* Ongoing Projects */
+#section-four .ongoing-projects {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
