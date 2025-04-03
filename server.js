@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 // Enable CORS to allow the frontend to communicate with the backend
 app.use(cors());
