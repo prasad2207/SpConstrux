@@ -19,36 +19,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Contact Form Submission
     document.getElementById("contact-form").addEventListener("submit", function (event) {
-        event.preventDefault();  // Prevent default form submission
-
+        event.preventDefault();  
+    
         const formData = {
             name: document.getElementById("name").value,
             mobile: document.getElementById("mobile").value,
             message: document.getElementById("message").value
         };
-
-        fetch('https://spconstrux-node.onrender.com/send-email', {
+    
+        // 1. Send Email
+        // fetch('https://spconstrux-node.onrender.com/send-email', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(formData)
+        // })
+        // .then(response => response.text())
+        // .then(data => {
+        //     alert('Message sent successfully!');
+        // })
+        // .catch((error) => {
+        //     console.error('Error sending email:', error);
+        //     alert('Error sending message');
+        // });
+    
+        // 2. Save Form Response
+        fetch('http://localhost:8080/save-response', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         })
-        .then(response => response.text())
-        .then(data => {
-            alert('Message sent successfully!');
+        .then(async (response) => {
+            const text = await response.text();
+            try {
+                const json = JSON.parse(text);
+                console.log('Response saved:', json.message);
+                alert('Message sent successfully!');
+            } catch (e) {
+                console.warn("Response is not JSON:", text);
+                alert('Error sending message json issue');
+            }
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.error('Error saving response:', error);
             alert('Error sending message');
         });
+        
     });
+    
 
-    // **Section 3: Work Hours Chart**
+    // **Work Hours Chart**
     const workHoursCanvas = document.getElementById('workHoursChart');
     if (workHoursCanvas) {
         workHoursCanvas.style.width = "100%";
-        workHoursCanvas.style.height = "250px";  // Ensure it fits inside card
+        workHoursCanvas.style.height = "250px";  
 
         const workHoursCtx = workHoursCanvas.getContext('2d');
         new Chart(workHoursCtx, {
@@ -57,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 labels: ['Today', 'This Month', 'This Year'],
                 datasets: [{
                     label: 'Work Hours',
-                    data: [8, 160, 1920],  // Updated dataset
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Different colors
+                    data: [8, 160, 1920],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                     borderColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                     borderWidth: 1
                 }]
@@ -67,10 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 2000  // Adjust the max value based on yearly hours
-                    }
+                    y: { beginAtZero: true, max: 2000 }
                 }
             }
         });
@@ -78,11 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Canvas element #workHoursChart not found!");
     }
 
-    // **Section 4: Ongoing Projects Chart**
+    // **Ongoing Projects Chart**
     let ctx = document.getElementById("ongoingProjectsChart");
     if (ctx) {
         ctx = ctx.getContext("2d");
-
         new Chart(ctx, {
             type: "doughnut",
             data: {
@@ -105,4 +124,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update Static Values
     document.getElementById('total-projects').innerText = 120;
     document.getElementById('happy-customers').innerText = 98;
+
 });

@@ -427,7 +427,21 @@ html, body {
     width: 100%;
     overflow: hidden;
     padding: 1rem 0;
-} 
+
+
+  } 
+  .carousel-items {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+  .carousel-items::-webkit-scrollbar {
+    display: none;
+}
+
 html, body {
   overflow-x: hidden;
 }
@@ -442,6 +456,9 @@ html, body {
   white-space: normal; /* Allow text to wrap properly */
   visibility: hidden;
 }
+ #section-two .carousel-items .card {
+      flex: 0 0 45%;
+    }
 }
   /* Section Five */
 #section-five {

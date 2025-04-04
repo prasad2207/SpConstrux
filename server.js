@@ -2,73 +2,132 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const port = 8080;
 
-// Enable CORS to allow the frontend to communicate with the backend
+// Enable CORS
 app.use(cors());
 
-// Middleware to parse JSON and form data
+// Middleware for parsing JSON and form data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-// Set up the email transporter (use your SMTP server settings)
+// Set up the email transporter
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // Using Gmail service
+    service: 'gmail',
     auth: {
-      user: 'ulip.sipl@gmail.com', // Replace with your Gmail address
-      pass: 'swgo uptx cenv anni'   // Replace with your Gmail app password or regular password
+        user: 'ulip.sipl@gmail.com',
+        pass: 'swgo uptx cenv anni'
     },
-    tls: {
-      rejectUnauthorized: false
-    },
-    // Using port 587 (non-SSL, uses TLS)
+    tls: { rejectUnauthorized: false },
     port: 587,
-    secure: false // false for TLS, true for SSL
-  });
-
-// Route to handle the POST request for sending an email
-app.post('/send-email', (req, res) => {
-  const { name, email, mobile, message } = req.body; // Destructure values from the request body
-
-  // Make sure all fields are available
-  if (!name || !mobile || !message) {
-      return res.status(400).send({ success: false, message: 'Missing fields' });
-  }
-
-  const mailOptions = {
-      from: email,  // From the email provided in the form
-      to: 'prasadpshinde2000@gmail.com',  // Replace with the recipient's email
-      subject: `New message from ${name}`,
-      text: `You have received a new message from ${name} (${mobile}):\n\n${message}`,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-          console.error('Error:', error);  // Log the error for debugging
-          return res.status(500).send({
-              success: false,
-              message: 'Error sending email',
-              error: error.message,
-          });
-      }
-
-      console.log('Email sent:', info.response);
-      return res.status(200).send({
-          success: true,
-          message: 'Email sent successfully',
-      });
-  });
+    secure: false
 });
 
+// 📩 Route to send email
+app.post('/send-email', (req, res) => {
+    const { name, email, mobile, message } = req.body;
 
-// Serve static files (e.g., index.html, script.js) from the 'public' folder
+    if (!name || !mobile || !message) {
+        return res.status(400).json({ success: false, message: 'Missing fields' });
+    }
+
+    const mailOptions = {
+        from: 'ulip.sipl@gmail.com',
+        to: 'prasadpshinde2000@gmail.com',
+        subject: `New message from ${name}`,
+        text: `You have received a new message from ${name} (${mobile}):\n\n${message}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error:', error);
+            return res.status(500).json({ success: false, message: 'Error sending email', error: error.message });
+        }
+
+        console.log('Email sent:', info.response);
+        return res.status(200).json({ success: true, message: 'Email sent successfully' });
+    });
+});
+
+// 📂 Serve static files (Frontend)
 app.use(express.static('public'));
 
-// Start the server
+// 📁 File path for responses
+const JSON_FILE = path.join(__dirname, 'responses.json');
+
+// 📌 Function to read responses from JSON file
+const getResponses = () => {
+    try {
+        if (!fs.existsSync(JSON_FILE)) return [];
+        const data = fs.readFileSync(JSON_FILE, 'utf8');
+        return data ? JSON.parse(data) : [];
+    } catch (err) {
+        console.error('Error reading JSON file:', err);
+        return [];
+    }
+};
+
+// 📌 Function to save responses to JSON file
+const saveResponses = (responses) => {
+    try {
+        fs.writeFileSync(JSON_FILE, JSON.stringify(responses, null, 2));
+    } catch (err) {
+        console.error('Error writing JSON file:', err);
+    }
+};
+
+// 📝 Route to save response to JSON file
+app.post('/save-response', (req, res) => {
+    const { name, mobile, message } = req.body;
+    if (!name || !mobile || !message) {
+        return res.status(400).json({ success: false, message: 'Missing fields' });
+    }
+
+    let responses = getResponses();
+    responses.push({ name, mobile, message, contacted: false }); // Default contacted: false
+    saveResponses(responses);
+
+    res.status(200).json({ success: true, message: 'Response saved successfully' });
+});
+
+// 📌 Route to get saved responses
+app.get('/get-responses', (req, res) => {
+    res.status(200).json({ success: true, responses: getResponses() });
+});
+
+// ✅ Route to mark response as "Contacted"
+app.post('/mark-contacted/:index', (req, res) => {
+    let responses = getResponses();
+    const index = parseInt(req.params.index);
+
+    if (responses[index]) {
+        responses[index].contacted = true;
+        saveResponses(responses);
+        res.json({ success: true, message: 'Marked as Contacted' });
+    } else {
+        res.status(404).json({ success: false, message: 'Entry not found' });
+    }
+});
+
+// ❌ Route to delete response
+app.delete('/delete-response/:index', (req, res) => {
+    let responses = getResponses();
+    const index = parseInt(req.params.index);
+
+    if (responses[index]) {
+        responses.splice(index, 1); // Remove the entry
+        saveResponses(responses);
+        res.json({ success: true, message: 'Entry deleted' });
+    } else {
+        res.status(404).json({ success: false, message: 'Entry not found' });
+    }
+});
+
+// 🚀 Start the server
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+    console.log(`✅ Server running on http://localhost:${port}`);
 });
