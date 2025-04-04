@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('http://localhost:8080/get-responses')  // Update URL if needed
+    fetch('https://spconstrux-node.onrender.com/get-responses')  // Update URL if needed
         .then(response => response.json())
         .then(data => {
             const responseContainer = document.getElementById("responseData");
@@ -60,7 +60,7 @@ function generateTableRow(resp, index) {
 
 // ✅ Mark as contacted
 function markAsContacted(index) {
-    fetch(`http://localhost:8080/mark-contacted/${index}`, { method: 'POST' })
+    fetch(`https://spconstrux-node.onrender.com/mark-contacted/${index}`, { method: 'POST' })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -75,7 +75,7 @@ function markAsContacted(index) {
 
 // ❌ Delete response
 function deleteResponse(index) {
-    fetch(`http://localhost:8080/delete-response/${index}`, { method: 'DELETE' })
+    fetch(`https://spconstrux-node.onrender.com/delete-response/${index}`, { method: 'DELETE' })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
